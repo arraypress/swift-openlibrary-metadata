@@ -58,7 +58,7 @@ public struct OLWork: Sendable, Identifiable {
     /// - Returns: A `covers.openlibrary.org` URL, or `nil` if there is no cover.
     public func coverURL(size: OLCoverSize = .large) -> URL? {
         guard let coverID = coverIDs.first else { return nil }
-        return URL(string: "https://covers.openlibrary.org/b/id/\(coverID)-\(size.rawValue).jpg")
+        return CoverURL.book(coverID: coverID, size: size)
     }
 
     /// Creates a work.

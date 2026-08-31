@@ -53,7 +53,7 @@ public struct OLAuthor: Sendable, Identifiable {
     /// - Returns: A `covers.openlibrary.org` URL, or `nil` if there is no photo.
     public func photoURL(size: OLCoverSize = .large) -> URL? {
         guard let photoID else { return nil }
-        return URL(string: "https://covers.openlibrary.org/a/id/\(photoID)-\(size.rawValue).jpg")
+        return CoverURL.author(photoID: photoID, size: size)
     }
 
     /// Creates an author.
